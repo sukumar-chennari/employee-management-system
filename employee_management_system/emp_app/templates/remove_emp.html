@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block start %}
+<br>
+<marquee 
+  direction="right" 
+  bgcolor="azure"
+  height="50">
+  <h3>!!!!Please Select an Employee to Remove !!!!</h3>
+</marquee>
+
+<div class=" btn-group center d-grid  col-6 mx-auto">
+    <button type="button" class="btn btn-danger dropdown-toggle  " data-bs-toggle="dropdown" aria-expanded="false">
+      Select Employee
+    </button>
+    <ul class="dropdown-menu">
+    {% for emp in emps %}
+      <li><a class="dropdown-item " href="/remove_emp/{{emp.id}}">{{emp.first_name}} {{emp.last_name}}</a></li>
+    {% endfor %}
+    </ul>
+</div>
+
+
+{% if messages %}
+<div class="alert alert-primary" role="alert">
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %} 
+</div>
+{% endif %}
+
+{%endblock %}

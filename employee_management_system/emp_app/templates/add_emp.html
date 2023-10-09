@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block start %}
+<br>
+<form class="container  col-6 mx-auto p-3 shadow-lg" method="post">
+    {% csrf_token %}
+    <h2>Enter the Employee Details</h2>
+
+    {% if messages %}
+    <div class="alert alert-primary" role="alert">
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %} 
+    </div>
+    {% endif %}
+
+
+    <div class="form-group">
+      <label for="first_name">First Name</label>
+      <input type="text" class="form-control" id="first_name" name="first_name">
+    </div>
+
+    <div class="form-group">
+        <label for="last_name">Last Name</label>
+        <input type="text" class="form-control" name="last_name" >
+      </div>
+
+    <div class="form-group">
+      <label for="last">Role</label>
+      <input type="number" class="form-control" name="role">
+      <div id="emailHelp" class="form-text">Please enter the Role ID as per the mail recieved .</div>
+    </div>
+
+    <div class="form-group">
+        <label for="last">Salary</label>
+        <input type="number" class="form-control" name="salary">
+    </div>
+
+    <div class="form-group">
+        <label for="last">Bonus</label>
+        <input type="number" class="form-control" name="bonus">
+    </div>
+
+    <div class="form-group">
+        <label for="last">Phone Number</label>
+        <input type="number" class="form-control" name="phone">
+    </div>
+
+    <div class="form-group">
+        <label for="last">Department</label>
+        <input type="number" class="form-control" name="department">
+        <div id="emailHelp" class="form-text">Please enter the Department ID as per the mail recieved .</div>
+    </div>
+
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+{% endblock %}
